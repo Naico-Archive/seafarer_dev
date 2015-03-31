@@ -1,0 +1,1280 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="BsmMobileService" targetNamespace="http://tempuri.org/">
+<wsp:Policy wsu:Id="BasicHttpsBinding_IBsmMobileService_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:TransportToken>
+<wsp:Policy>
+<sp:HttpsToken RequireClientCertificate="false"/>
+</wsp:Policy>
+</sp:TransportToken>
+<sp:AlgorithmSuite>
+<wsp:Policy>
+<sp:Basic256/>
+</wsp:Policy>
+</sp:AlgorithmSuite>
+<sp:Layout>
+<wsp:Policy>
+<sp:Strict/>
+</wsp:Policy>
+</sp:Layout>
+</wsp:Policy>
+</sp:TransportBinding>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsdl:types>
+<xsd:schema targetNamespace="http://tempuri.org/Imports">
+<xsd:import schemaLocation="https://bsm-iisprod.bs-shipmanagement.com/BSMMobileService/BsmMobileService.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+<xsd:import schemaLocation="https://bsm-iisprod.bs-shipmanagement.com/BSMMobileService/BsmMobileService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+<xsd:import schemaLocation="https://bsm-iisprod.bs-shipmanagement.com/BSMMobileService/BsmMobileService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BSM.BSMMobile.BSMBusinessEntities"/>
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="IBsmMobileService_GetVesselAll_InputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselAll"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVesselAll_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselAllResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVesselWiki_InputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselWiki"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVesselWiki_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselWikiResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVesselContact_InputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselContact"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVesselContact_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselContactResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_InsertTraining_InputMessage">
+<wsdl:part name="parameters" element="tns:InsertTraining"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_InsertTraining_OutputMessage">
+<wsdl:part name="parameters" element="tns:InsertTrainingResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetTrainingDetails_InputMessage">
+<wsdl:part name="parameters" element="tns:GetTrainingDetails"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetTrainingDetails_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetTrainingDetailsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetCrewList_InputMessage">
+<wsdl:part name="parameters" element="tns:GetCrewList"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetCrewList_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetCrewListResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetUserDetails_InputMessage">
+<wsdl:part name="parameters" element="tns:GetUserDetails"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetUserDetails_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetUserDetailsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetTopVendors_InputMessage">
+<wsdl:part name="parameters" element="tns:GetTopVendors"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetTopVendors_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetTopVendorsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVendorInvoices_InputMessage">
+<wsdl:part name="parameters" element="tns:GetVendorInvoices"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVendorInvoices_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetVendorInvoicesResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetOwnerList_InputMessage">
+<wsdl:part name="parameters" element="tns:GetOwnerList"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetOwnerList_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetOwnerListResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVesselListFilter_InputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselListFilter"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVesselListFilter_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetVesselListFilterResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVendorTurnoverReport_InputMessage">
+<wsdl:part name="parameters" element="tns:GetVendorTurnoverReport"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetVendorTurnoverReport_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetVendorTurnoverReportResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_ReturnString_InputMessage">
+<wsdl:part name="parameters" element="tns:ReturnString"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_ReturnString_OutputMessage">
+<wsdl:part name="parameters" element="tns:ReturnStringResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetPalUserID_InputMessage">
+<wsdl:part name="parameters" element="tns:GetPalUserID"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetPalUserID_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetPalUserIDResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetUserOwners_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetUserOwners"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetUserOwners_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetUserOwnersResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetDashboardSettings_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetDashboardSettings"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetDashboardSettings_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetDashboardSettingsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetUserRights_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetUserRights"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetUserRights_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetUserRightsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetOwnerVessel_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetOwnerVessel"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetOwnerVessel_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetOwnerVesselResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetVesselInfo_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetVesselInfo"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetVesselInfo_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetVesselInfoResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetVesselCrewList_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetVesselCrewList"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetVesselCrewList_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetVesselCrewListResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetOwnerNoonReport_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetOwnerNoonReport"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetOwnerNoonReport_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetOwnerNoonReportResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetMaintenanceAnalysisReport_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetMaintenanceAnalysisReport"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetMaintenanceAnalysisReport_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetMaintenanceAnalysisReportResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetCWACrewCV_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetCWACrewCV"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetCWACrewCV_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetCWACrewCVResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetVesselPortETA_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetVesselPortETA"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetVesselPortETA_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetVesselPortETAResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetCommonVesselList_InputMessage">
+<wsdl:part name="parameters" element="tns:GetCommonVesselList"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetCommonVesselList_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetCommonVesselListResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetCriticalEquipments_InputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetCriticalEquipments"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWA_GetCriticalEquipments_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWA_GetCriticalEquipmentsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetPlanDetails_InputMessage">
+<wsdl:part name="parameters" element="tns:GetPlanDetails"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetPlanDetails_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetPlanDetailsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFTraningDetails_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFTraningDetails"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFTraningDetails_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFTraningDetailsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFFlightDetails_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFFlightDetails"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFFlightDetails_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFFlightDetailsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetAllotmentDetails_InputMessage">
+<wsdl:part name="parameters" element="tns:GetAllotmentDetails"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetAllotmentDetails_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetAllotmentDetailsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWAVarianceReport_InputMessage">
+<wsdl:part name="parameters" element="tns:CWAVarianceReport"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_CWAVarianceReport_OutputMessage">
+<wsdl:part name="parameters" element="tns:CWAVarianceReportResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetOpenPositions_InputMessage">
+<wsdl:part name="parameters" element="tns:GetOpenPositions"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetOpenPositions_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetOpenPositionsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetDOA_InputMessage">
+<wsdl:part name="parameters" element="tns:GetDOA"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetDOA_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetDOAResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_InsertDOA_InputMessage">
+<wsdl:part name="parameters" element="tns:InsertDOA"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_InsertDOA_OutputMessage">
+<wsdl:part name="parameters" element="tns:InsertDOAResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetAllottedAmountDt_InputMessage">
+<wsdl:part name="parameters" element="tns:GetAllottedAmountDt"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetAllottedAmountDt_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetAllottedAmountDtResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetDocumentsDetails_InputMessage">
+<wsdl:part name="parameters" element="tns:GetDocumentsDetails"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetDocumentsDetails_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetDocumentsDetailsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetAlertAllotment_InputMessage">
+<wsdl:part name="parameters" element="tns:GetAlertAllotment"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetAlertAllotment_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetAlertAllotmentResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlertTraining_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlertTraining"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlertTraining_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlertTrainingResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlertPlan_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlertPlan"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlertPlan_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlertPlanResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlertFlight_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlertFlight"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlertFlight_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlertFlightResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFCallPushAlert_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFCallPushAlert"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFCallPushAlert_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFCallPushAlertResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_InsertCorrespondance_InputMessage">
+<wsdl:part name="parameters" element="tns:InsertCorrespondance"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_InsertCorrespondance_OutputMessage">
+<wsdl:part name="parameters" element="tns:InsertCorrespondanceResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlerts_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlerts"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFAlerts_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFAlertsResponse"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFOpenPositionNotify_InputMessage">
+<wsdl:part name="parameters" element="tns:GetSFOpenPositionNotify"/>
+</wsdl:message>
+<wsdl:message name="IBsmMobileService_GetSFOpenPositionNotify_OutputMessage">
+<wsdl:part name="parameters" element="tns:GetSFOpenPositionNotifyResponse"/>
+</wsdl:message>
+<wsdl:portType name="IBsmMobileService">
+<wsdl:operation name="GetVesselAll">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselAll" message="tns:IBsmMobileService_GetVesselAll_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselAllResponse" message="tns:IBsmMobileService_GetVesselAll_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetVesselWiki">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselWiki" message="tns:IBsmMobileService_GetVesselWiki_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselWikiResponse" message="tns:IBsmMobileService_GetVesselWiki_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetVesselContact">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselContact" message="tns:IBsmMobileService_GetVesselContact_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselContactResponse" message="tns:IBsmMobileService_GetVesselContact_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="InsertTraining">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/InsertTraining" message="tns:IBsmMobileService_InsertTraining_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/InsertTrainingResponse" message="tns:IBsmMobileService_InsertTraining_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetTrainingDetails">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetTrainingDetails" message="tns:IBsmMobileService_GetTrainingDetails_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetTrainingDetailsResponse" message="tns:IBsmMobileService_GetTrainingDetails_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetCrewList">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetCrewList" message="tns:IBsmMobileService_GetCrewList_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetCrewListResponse" message="tns:IBsmMobileService_GetCrewList_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetUserDetails">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetUserDetails" message="tns:IBsmMobileService_GetUserDetails_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetUserDetailsResponse" message="tns:IBsmMobileService_GetUserDetails_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetTopVendors">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetTopVendors" message="tns:IBsmMobileService_GetTopVendors_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetTopVendorsResponse" message="tns:IBsmMobileService_GetTopVendors_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetVendorInvoices">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetVendorInvoices" message="tns:IBsmMobileService_GetVendorInvoices_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetVendorInvoicesResponse" message="tns:IBsmMobileService_GetVendorInvoices_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetOwnerList">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetOwnerList" message="tns:IBsmMobileService_GetOwnerList_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetOwnerListResponse" message="tns:IBsmMobileService_GetOwnerList_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetVesselListFilter">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselListFilter" message="tns:IBsmMobileService_GetVesselListFilter_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetVesselListFilterResponse" message="tns:IBsmMobileService_GetVesselListFilter_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetVendorTurnoverReport">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetVendorTurnoverReport" message="tns:IBsmMobileService_GetVendorTurnoverReport_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetVendorTurnoverReportResponse" message="tns:IBsmMobileService_GetVendorTurnoverReport_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ReturnString">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/ReturnString" message="tns:IBsmMobileService_ReturnString_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/ReturnStringResponse" message="tns:IBsmMobileService_ReturnString_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetPalUserID">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetPalUserID" message="tns:IBsmMobileService_GetPalUserID_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetPalUserIDResponse" message="tns:IBsmMobileService_GetPalUserID_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetUserOwners">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetUserOwners" message="tns:IBsmMobileService_CWA_GetUserOwners_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetUserOwnersResponse" message="tns:IBsmMobileService_CWA_GetUserOwners_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetDashboardSettings">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetDashboardSettings" message="tns:IBsmMobileService_CWA_GetDashboardSettings_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetDashboardSettingsResponse" message="tns:IBsmMobileService_CWA_GetDashboardSettings_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetUserRights">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetUserRights" message="tns:IBsmMobileService_CWA_GetUserRights_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetUserRightsResponse" message="tns:IBsmMobileService_CWA_GetUserRights_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetOwnerVessel">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetOwnerVessel" message="tns:IBsmMobileService_CWA_GetOwnerVessel_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetOwnerVesselResponse" message="tns:IBsmMobileService_CWA_GetOwnerVessel_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselInfo">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetVesselInfo" message="tns:IBsmMobileService_CWA_GetVesselInfo_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetVesselInfoResponse" message="tns:IBsmMobileService_CWA_GetVesselInfo_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselCrewList">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetVesselCrewList" message="tns:IBsmMobileService_CWA_GetVesselCrewList_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetVesselCrewListResponse" message="tns:IBsmMobileService_CWA_GetVesselCrewList_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetOwnerNoonReport">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetOwnerNoonReport" message="tns:IBsmMobileService_CWA_GetOwnerNoonReport_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetOwnerNoonReportResponse" message="tns:IBsmMobileService_CWA_GetOwnerNoonReport_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetMaintenanceAnalysisReport">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetMaintenanceAnalysisReport" message="tns:IBsmMobileService_CWA_GetMaintenanceAnalysisReport_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetMaintenanceAnalysisReportResponse" message="tns:IBsmMobileService_CWA_GetMaintenanceAnalysisReport_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetCWACrewCV">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetCWACrewCV" message="tns:IBsmMobileService_CWA_GetCWACrewCV_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetCWACrewCVResponse" message="tns:IBsmMobileService_CWA_GetCWACrewCV_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselPortETA">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetVesselPortETA" message="tns:IBsmMobileService_CWA_GetVesselPortETA_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetVesselPortETAResponse" message="tns:IBsmMobileService_CWA_GetVesselPortETA_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetCommonVesselList">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetCommonVesselList" message="tns:IBsmMobileService_GetCommonVesselList_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetCommonVesselListResponse" message="tns:IBsmMobileService_GetCommonVesselList_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetCriticalEquipments">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetCriticalEquipments" message="tns:IBsmMobileService_CWA_GetCriticalEquipments_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWA_GetCriticalEquipmentsResponse" message="tns:IBsmMobileService_CWA_GetCriticalEquipments_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetPlanDetails">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetPlanDetails" message="tns:IBsmMobileService_GetPlanDetails_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetPlanDetailsResponse" message="tns:IBsmMobileService_GetPlanDetails_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFTraningDetails">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFTraningDetails" message="tns:IBsmMobileService_GetSFTraningDetails_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFTraningDetailsResponse" message="tns:IBsmMobileService_GetSFTraningDetails_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFFlightDetails">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFFlightDetails" message="tns:IBsmMobileService_GetSFFlightDetails_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFFlightDetailsResponse" message="tns:IBsmMobileService_GetSFFlightDetails_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetAllotmentDetails">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetAllotmentDetails" message="tns:IBsmMobileService_GetAllotmentDetails_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetAllotmentDetailsResponse" message="tns:IBsmMobileService_GetAllotmentDetails_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CWAVarianceReport">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/CWAVarianceReport" message="tns:IBsmMobileService_CWAVarianceReport_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/CWAVarianceReportResponse" message="tns:IBsmMobileService_CWAVarianceReport_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetOpenPositions">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetOpenPositions" message="tns:IBsmMobileService_GetOpenPositions_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetOpenPositionsResponse" message="tns:IBsmMobileService_GetOpenPositions_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetDOA">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetDOA" message="tns:IBsmMobileService_GetDOA_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetDOAResponse" message="tns:IBsmMobileService_GetDOA_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="InsertDOA">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/InsertDOA" message="tns:IBsmMobileService_InsertDOA_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/InsertDOAResponse" message="tns:IBsmMobileService_InsertDOA_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetAllottedAmountDt">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetAllottedAmountDt" message="tns:IBsmMobileService_GetAllottedAmountDt_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetAllottedAmountDtResponse" message="tns:IBsmMobileService_GetAllottedAmountDt_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetDocumentsDetails">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetDocumentsDetails" message="tns:IBsmMobileService_GetDocumentsDetails_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetDocumentsDetailsResponse" message="tns:IBsmMobileService_GetDocumentsDetails_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetAlertAllotment">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetAlertAllotment" message="tns:IBsmMobileService_GetAlertAllotment_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetAlertAllotmentResponse" message="tns:IBsmMobileService_GetAlertAllotment_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertTraining">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlertTraining" message="tns:IBsmMobileService_GetSFAlertTraining_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlertTrainingResponse" message="tns:IBsmMobileService_GetSFAlertTraining_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertPlan">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlertPlan" message="tns:IBsmMobileService_GetSFAlertPlan_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlertPlanResponse" message="tns:IBsmMobileService_GetSFAlertPlan_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertFlight">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlertFlight" message="tns:IBsmMobileService_GetSFAlertFlight_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlertFlightResponse" message="tns:IBsmMobileService_GetSFAlertFlight_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFCallPushAlert">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFCallPushAlert" message="tns:IBsmMobileService_GetSFCallPushAlert_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFCallPushAlertResponse" message="tns:IBsmMobileService_GetSFCallPushAlert_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="InsertCorrespondance">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/InsertCorrespondance" message="tns:IBsmMobileService_InsertCorrespondance_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/InsertCorrespondanceResponse" message="tns:IBsmMobileService_InsertCorrespondance_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlerts">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlerts" message="tns:IBsmMobileService_GetSFAlerts_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFAlertsResponse" message="tns:IBsmMobileService_GetSFAlerts_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSFOpenPositionNotify">
+<wsdl:input wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFOpenPositionNotify" message="tns:IBsmMobileService_GetSFOpenPositionNotify_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IBsmMobileService/GetSFOpenPositionNotifyResponse" message="tns:IBsmMobileService_GetSFOpenPositionNotify_OutputMessage"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="BasicHttpBinding_IBsmMobileService" type="tns:IBsmMobileService">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GetVesselAll">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselAll" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVesselWiki">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselWiki" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVesselContact">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselContact" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertTraining">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/InsertTraining" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetTrainingDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetTrainingDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetCrewList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetCrewList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetUserDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetUserDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetTopVendors">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetTopVendors" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVendorInvoices">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVendorInvoices" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetOwnerList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetOwnerList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVesselListFilter">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselListFilter" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVendorTurnoverReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVendorTurnoverReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ReturnString">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/ReturnString" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPalUserID">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetPalUserID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetUserOwners">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetUserOwners" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetDashboardSettings">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetDashboardSettings" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetUserRights">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetUserRights" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetOwnerVessel">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetOwnerVessel" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselInfo">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetVesselInfo" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselCrewList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetVesselCrewList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetOwnerNoonReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetOwnerNoonReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetMaintenanceAnalysisReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetMaintenanceAnalysisReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetCWACrewCV">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetCWACrewCV" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselPortETA">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetVesselPortETA" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetCommonVesselList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetCommonVesselList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetCriticalEquipments">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetCriticalEquipments" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPlanDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetPlanDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFTraningDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFTraningDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFFlightDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFFlightDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetAllotmentDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetAllotmentDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWAVarianceReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWAVarianceReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetOpenPositions">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetOpenPositions" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetDOA">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetDOA" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertDOA">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/InsertDOA" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetAllottedAmountDt">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetAllottedAmountDt" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetDocumentsDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetDocumentsDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetAlertAllotment">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetAlertAllotment" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertTraining">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlertTraining" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertPlan">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlertPlan" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertFlight">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlertFlight" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFCallPushAlert">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFCallPushAlert" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertCorrespondance">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/InsertCorrespondance" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlerts">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlerts" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFOpenPositionNotify">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFOpenPositionNotify" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="BasicHttpsBinding_IBsmMobileService" type="tns:IBsmMobileService">
+<wsp:PolicyReference URI="#BasicHttpsBinding_IBsmMobileService_policy"/>
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GetVesselAll">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselAll" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVesselWiki">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselWiki" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVesselContact">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselContact" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertTraining">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/InsertTraining" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetTrainingDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetTrainingDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetCrewList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetCrewList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetUserDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetUserDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetTopVendors">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetTopVendors" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVendorInvoices">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVendorInvoices" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetOwnerList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetOwnerList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVesselListFilter">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVesselListFilter" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetVendorTurnoverReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetVendorTurnoverReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ReturnString">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/ReturnString" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPalUserID">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetPalUserID" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetUserOwners">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetUserOwners" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetDashboardSettings">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetDashboardSettings" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetUserRights">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetUserRights" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetOwnerVessel">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetOwnerVessel" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselInfo">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetVesselInfo" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselCrewList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetVesselCrewList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetOwnerNoonReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetOwnerNoonReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetMaintenanceAnalysisReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetMaintenanceAnalysisReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetCWACrewCV">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetCWACrewCV" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetVesselPortETA">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetVesselPortETA" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetCommonVesselList">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetCommonVesselList" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWA_GetCriticalEquipments">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWA_GetCriticalEquipments" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetPlanDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetPlanDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFTraningDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFTraningDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFFlightDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFFlightDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetAllotmentDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetAllotmentDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CWAVarianceReport">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/CWAVarianceReport" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetOpenPositions">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetOpenPositions" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetDOA">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetDOA" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertDOA">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/InsertDOA" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetAllottedAmountDt">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetAllottedAmountDt" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetDocumentsDetails">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetDocumentsDetails" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetAlertAllotment">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetAlertAllotment" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertTraining">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlertTraining" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertPlan">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlertPlan" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlertFlight">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlertFlight" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFCallPushAlert">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFCallPushAlert" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsertCorrespondance">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/InsertCorrespondance" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFAlerts">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFAlerts" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GetSFOpenPositionNotify">
+<soap:operation soapAction="http://tempuri.org/IBsmMobileService/GetSFOpenPositionNotify" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="BsmMobileService">
+<wsdl:port name="BasicHttpsBinding_IBsmMobileService" binding="tns:BasicHttpsBinding_IBsmMobileService">
+<soap:address location="https://bsm-iisprod.bs-shipmanagement.com/BSMMobileService/BsmMobileService.svc"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
